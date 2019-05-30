@@ -3,11 +3,11 @@ trg=de
 
 # scripts directory of moses decoder: http://www.statmt.org/moses/
 # you do not need to compile moses; a simple download is sufficient
-moses_scripts=/home/s1852803/unmt/moses/mosesdecoder
+moses_scripts=/home/s1852803/unmt/moses/mosesdecoder/scripts
 
 #scripts for subword segmentation: https://github.com/rsennrich/subword-nmt
-bpe_scripts=/home/s1852803/unmt/subword/subword-nmt
+bpe_scripts=/home/s1852803/unmt/subword/subword-nmt/subword-nmt
 
 #nematus: https://github.com/EdinburghNLP/nematus
-nematus_home=/home/s1852803/unmt/nematus/nematus
+nematus_home=/home/s1852803/unmt/nematus/nematus/nematus
 
