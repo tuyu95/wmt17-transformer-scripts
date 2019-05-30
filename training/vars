@@ -6,7 +6,7 @@ trg=de
 moses_scripts=/home/s1852803/unmt/moses/mosesdecoder/scripts
 
 #scripts for subword segmentation: https://github.com/rsennrich/subword-nmt
-bpe_scripts=/home/s1852803/unmt/subword/subword-nmt/subword-nmt
+bpe_scripts=/home/s1852803/unmt/subword/subword-nmt/subword_nmt
 
 #nematus: https://github.com/EdinburghNLP/nematus
 nematus_home=/home/s1852803/unmt/nematus/nematus/nematus
