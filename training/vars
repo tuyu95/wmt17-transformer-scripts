@@ -9,5 +9,5 @@ moses_scripts=/home/s1852803/unmt/moses/mosesdecoder/scripts
 bpe_scripts=/home/s1852803/unmt/subword/subword-nmt/subword_nmt
 
 #nematus: https://github.com/EdinburghNLP/nematus
-nematus_home=/home/s1852803/unmt/nematus/nematus/nematus
+nematus_home=/home/s1852803/unmt/nematus/nematus
 
