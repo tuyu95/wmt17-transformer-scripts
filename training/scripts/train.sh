@@ -5,7 +5,7 @@
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --partition=LongJobs
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:1
 #SBATCH --mem=12000  # memory in Mb
 #SBATCH --time=0-08:00:00
 
@@ -38,7 +38,7 @@ working_dir=$main_dir/model
 
 # TensorFlow devices; change this to control the GPUs used by Nematus.
 # It should be a list of GPU identifiers. For example, '1' or '0,1,3'
-devices=0,1,2,3
+devices=2
 
 # Training command that closely follows the 'base' configuration from the
 # paper
