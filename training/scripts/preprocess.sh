@@ -6,7 +6,7 @@
 # for application to a different language pair,
 # change source and target prefix, optionally the number of BPE operations,
 
-script_dir=`dirname $0`
+script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
 main_dir=$script_dir/..
 data_dir=$main_dir/data
 model_dir=$main_dir/model
