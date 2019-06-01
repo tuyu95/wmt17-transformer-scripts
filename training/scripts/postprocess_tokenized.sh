@@ -5,7 +5,7 @@
 # including merging of BPE subword units,
 # detruecasing, and detokenization
 
-script_dir=`dirname $0`
+script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
 main_dir=$script_dir/../
 
 # variables (toolkits; source and target language)
