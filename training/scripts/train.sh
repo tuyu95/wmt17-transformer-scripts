@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # Distributed under MIT license
 
-#!/bin/sh
+
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --partition=Standard
