@@ -2,7 +2,7 @@
 # Downloads WMT17 training and test data for EN-DE
 # Distributed under MIT license
 
-script_dir=`dirname $0`
+script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
 main_dir=$script_dir/..
 
 # variables (toolkits; source and target language)
