@@ -28,7 +28,7 @@ export PYTHON_PATH=$PATH
 
 
 script_dir=`dirname $0`
-main_dir=$script_dir/../
+main_dir=$script_dir/..
 data_dir=$main_dir/data
 working_dir=$main_dir/model
 
