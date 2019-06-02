@@ -4,10 +4,10 @@
 
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
-#SBATCH --partition=Standard
+#SBATCH --partition=LongJobs
 #SBATCH --gres=gpu:4
 #SBATCH --mem=12000  # memory in Mb
-#SBATCH --time=0-08:00:00
+#SBATCH --time=3-08:00:00
 
 export CUDA_HOME=/opt/cuda-9.0.176.1/
 
@@ -73,11 +73,11 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --warmup_steps 4000 \
     --maxlen 100 \
     --batch_size 256 \
-    --token_batch_size 8192 \
+    --token_batch_size 4096 \
     --valid_source_dataset $data_dir/newstest2013.bpe.$src \
     --valid_target_dataset $data_dir/newstest2013.bpe.$trg \
     --valid_batch_size 120 \
-    --valid_token_batch_size 4096 \
+    --valid_token_batch_size 1024 \
     --valid_freq 10000 \
     --valid_script $script_dir/validate.sh \
     --disp_freq 1000 \
