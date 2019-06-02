@@ -73,7 +73,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --warmup_steps 4000 \
     --maxlen 100 \
     --batch_size 256 \
-    --token_batch_size 16384 \
+    --token_batch_size 8192 \
     --valid_source_dataset $data_dir/newstest2013.bpe.$src \
     --valid_target_dataset $data_dir/newstest2013.bpe.$trg \
     --valid_batch_size 120 \
