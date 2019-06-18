@@ -10,41 +10,23 @@ main_dir=$script_dir/..
 
 # get EN-DE training data for WMT17
 
-if [ ! -f $main_dir/downloads/de-en.tgz ];
+if [ ! -f $main_dir/downloads/gu-en.tsv.gz ];
 then
-  wget http://www.statmt.org/europarl/v7/de-en.tgz -O $main_dir/downloads/de-en.tgz
+  wget http://data.statmt.org/wikititles/v1/wikititles-v1.gu-en.tsv.gz -O $main_dir/downloads/gu-en.tgz
   tar -xf $main_dir/downloads/de-en.tgz -C $main_dir/downloads
 fi
 
-if [ ! -f $main_dir/downloads/training-parallel-commoncrawl.tgz ];
-then
-  wget http://www.statmt.org/wmt13/training-parallel-commoncrawl.tgz -O $main_dir/downloads/training-parallel-commoncrawl.tgz
-  tar -xf $main_dir/downloads/training-parallel-commoncrawl.tgz -C $main_dir/downloads
-fi
-
-if [ ! -f $main_dir/downloads/training-parallel-nc-v12.tgz ];
-then
-  wget http://data.statmt.org/wmt17/translation-task/training-parallel-nc-v12.tgz -O $main_dir/downloads/training-parallel-nc-v12.tgz
-  tar -xf $main_dir/downloads/training-parallel-nc-v12.tgz -C $main_dir/downloads
-fi
-
-if [ ! -f $main_dir/downloads/rapid2016.tgz ];
-then
-  wget http://data.statmt.org/wmt17/translation-task/rapid2016.tgz -O $main_dir/downloads/rapid2016.tgz
-  tar -xf $main_dir/downloads/rapid2016.tgz -C $main_dir/downloads
-fi
-
-if [ ! -f $main_dir/downloads/dev.tgz ];
-then
-  wget http://data.statmt.org/wmt17/translation-task/dev.tgz -O $main_dir/downloads/dev.tgz
+# if [ ! -f $main_dir/downloads/dev.tgz ];
+# then
+  wget http://data.statmt.org/wmt19/translation-task/dev.tgz -O $main_dir/downloads/dev.tgz
   tar -xf $main_dir/downloads/dev.tgz -C $main_dir/downloads
 fi
 
-if [ ! -f $main_dir/downloads/test.tgz ];
-then
-  wget http://data.statmt.org/wmt17/translation-task/test.tgz -O $main_dir/downloads/test.tgz
+# if [ ! -f $main_dir/downloads/test.tgz ];
+# then
+  wget http://data.statmt.org/wmt19/translation-task/test.tgz -O $main_dir/downloads/test.tgz
   tar -xf $main_dir/downloads/test.tgz -C $main_dir/downloads
-fi
+# fi
 
 
 # concatenate all training corpora
