@@ -14,16 +14,16 @@ if [ ! -f $main_dir/bible.gu-en.tsv.gz ];
 then
   wget http://data.statmt.org/wmt19/translation-task/bible.gu-en.tsv.gz -O $main_dir/downloads/gu-en.tsv.gz
   gzip -d $main_dir/downloads/gu-en.tsv.gz
-  awk -F$'\t' '{print $1}' gu-en.tsv > $main_dir/downloads/gu-en.gu
-  awk -F$'\t' '{print $2}' gu-en.tsv > $main_dir/downloads/gu-en.en
+  awk -F$'\t' '{print $1}' $main_dir/downloads/gu-en.tsv > $main_dir/downloads/gu-en.gu
+  awk -F$'\t' '{print $2}' $main_dir/downloads/gu-en.tsv > $main_dir/downloads/gu-en.en
 fi
 
 if [ ! -f $main_dir/govin-clean.gu-en.tsv.gz ];
 then
   wget http://data.statmt.org/wmt19/translation-task/govin-clean.gu-en.tsv.gz -O $main_dir/downloads/govin-clean.gu-en.tsv.gz
   gzip -d $main_dir/downloads/govin-clean.gu-en.tsv.gz
-  awk -F$'\t' '{print $1}' govin-clean.gu-en.tsv > $main_dir/downloads/govin-clean.gu-en.gu
-  awk -F$'\t' '{print $2}' govin-clean.gu-en.tsv > $main_dir/downloads/govin-clean.gu-en.en
+  awk -F$'\t' '{print $1}' $main_dir/downloads/govin-clean.gu-en.tsv > $main_dir/downloads/govin-clean.gu-en.gu
+  awk -F$'\t' '{print $2}' $main_dir/downloads/govin-clean.gu-en.tsv > $main_dir/downloads/govin-clean.gu-en.en
 fi
 
 if [ ! -f $main_dir/downloads/dev.tgz ];
