@@ -16,7 +16,7 @@ model_dir=$main_dir/model
 
 # number of merge operations. Network vocabulary should be slightly larger (to include characters),
 # or smaller if the operations are learned on the joint vocabulary
-bpe_operations=40000
+bpe_operations=20000
 
 #minimum number of times we need to have seen a character sequence in the training text before we merge it into one unit
 #this is applied to each training text independently, even with joint BPE
