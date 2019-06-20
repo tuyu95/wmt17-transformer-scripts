@@ -4,10 +4,10 @@
 
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
-#SBATCH --partition=Standard
+#SBATCH --partition=General_Usage
 #SBATCH --gres=gpu:4
 #SBATCH --mem=12000  # memory in Mb
-#SBATCH --time=0-08:00:00
+#SBATCH --time=0-60:00:00
 
 export CUDA_HOME=/opt/cuda-9.0.176.1/
 
@@ -55,32 +55,32 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --target_dataset $data_dir/corpus.bpe.$trg \
     --dictionaries $data_dir/corpus.bpe.both.json \
                    $data_dir/corpus.bpe.both.json \
-    --save_freq 30000 \
+    --save_freq 1000 \
     --model $working_dir/model \
     --reload latest_checkpoint \
     --model_type transformer \
     --embedding_size 512 \
     --state_size 512 \
-    --tie_encoder_decoder_embeddings \
-    --tie_decoder_embeddings \
+    --tie_encoder_decoder_embeddings 1 \
+    --tie_decoder_embeddings 1 \
     --loss_function per-token-cross-entropy \
     --label_smoothing 0.1 \
     --optimizer adam \
     --adam_beta1 0.9 \
     --adam_beta2 0.98 \
     --adam_epsilon 1e-09 \
-    --learning_schedule transformer \
+    --learning_schedule \
     --warmup_steps 4000 \
     --maxlen 100 \
-    --batch_size 128 \
-    --token_batch_size 4096 \
-    --valid_source_dataset $data_dir/newstest2013.bpe.$src \
-    --valid_target_dataset $data_dir/newstest2013.bpe.$trg \
+    --batch_size 32 \
+    --token_batch_size 2048 \
+    --valid_source_dataset $data_dir/newstest2019.bpe.$src \
+    --valid_target_dataset $data_dir/newstest2019.bpe.$trg \
     --valid_batch_size 64 \
     --valid_token_batch_size 1024 \
-    --valid_freq 10000 \
+    --valid_freq 50 \
     --valid_script $script_dir/validate.sh \
-    --disp_freq 1000 \
+    --disp_freq 10 \
     --sample_freq 0 \
     --beam_freq 0 \
     --beam_size 4 \
