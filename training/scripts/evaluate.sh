@@ -19,7 +19,7 @@ working_dir=$main_dir/model
 # assigning more than one.
 devices=0
 
-test_prefix=newstest2017
+test_prefix=newstest2019
 test=$test_prefix.bpe.$src
 ref=$test_prefix.$trg
 model=$working_dir/model.best-valid-script
