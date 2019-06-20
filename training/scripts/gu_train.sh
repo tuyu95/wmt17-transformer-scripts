@@ -56,7 +56,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --dictionaries $data_dir/corpus.bpe.both.json \
                    $data_dir/corpus.bpe.both.json \
     --save_freq 1000 \
-    --model $working_dir \
+    --model $working_dir/model \
     --reload latest_checkpoint \
     --model_type rnn \
     --embedding_size 512 \
