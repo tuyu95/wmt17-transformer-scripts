@@ -16,7 +16,7 @@ data_dir=$main_dir/data
 #language-dependent variables (source and target language)
 . $main_dir/vars
 
-dev_prefix=newstest2013
+dev_prefix=newsdev2019
 ref=$dev_prefix.$trg
 
 # evaluate translations and write BLEU score to standard output (for
