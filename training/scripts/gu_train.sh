@@ -58,20 +58,30 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --save_freq 1000 \
     --model $working_dir/model \
     --reload latest_checkpoint \
-    --model_type transformer \
+    --model_type rnn \
     --embedding_size 512 \
-    --state_size 512 \
-    --tie_encoder_decoder_embeddings 1 \
-    --tie_decoder_embeddings 1 \
-    --loss_function per-token-cross-entropy \
+    --state_size 1024 \
+    --rnn_enc_depth 1 \
+    --rnn_enc_transition_depth 2 \
+    --rnn_dec_depth 1 \
+    --rnn_dec_base_transition_depth 2 \
+    --tie_encoder_decoder_embeddings \
+    --tie_decoder_embeddings \
+    --rnn_layer_normalization \
+    --rnn_lexical_model \
+    --rnn_dropout_hidden 0.5 \
+    --rnn_dropout_embedding 0.5 \
+    --rnn_dropout_source 0.3 \
+    --rnn_dropout_target 0.3 \
+    --loss_function cross-entropy \
     --label_smoothing 0.1 \
     --optimizer adam \
     --adam_beta1 0.9 \
     --adam_beta2 0.98 \
     --adam_epsilon 1e-09 \
-    --learning_schedule \
-    --warmup_steps 4000 \
-    --maxlen 100 \
+    --learning_schedule constant\
+    --patience 10 \
+    --maxlen 200 \
     --batch_size 32 \
     --token_batch_size 2048 \
     --valid_source_dataset $data_dir/newstest2019.bpe.$src \
@@ -84,5 +94,5 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --sample_freq 0 \
     --beam_freq 0 \
     --beam_size 4 \
-    --translation_maxlen 100 \
+    --translation_maxlen 200 \
     --normalization_alpha 0.6
