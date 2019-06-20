@@ -78,6 +78,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --adam_beta2 0.98 \
     --adam_epsilon 1e-09 \
     --learning_schedule constant\
+    --learning_rate 0.0005 \
     --patience 10 \
     --maxlen 200 \
     --token_batch_size 1000 \
