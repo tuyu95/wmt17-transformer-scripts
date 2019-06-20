@@ -38,7 +38,7 @@ working_dir=$main_dir/model
 
 # TensorFlow devices; change this to control the GPUs used by Nematus.
 # It should be a list of GPU identifiers. For example, '1' or '0,1,3'
-devices=0,1,2,3
+devices=0,1,2,3,4,5,6,7
 
 # Training command that closely follows the 'base' configuration from the
 # paper
@@ -80,12 +80,10 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --learning_schedule constant\
     --patience 10 \
     --maxlen 200 \
-    --batch_size 32 \
-    --token_batch_size 2048 \
+    --token_batch_size 1000 \
     --valid_source_dataset $data_dir/newstest2019.bpe.$src \
     --valid_target_dataset $data_dir/newstest2019.bpe.$trg \
-    --valid_batch_size 64 \
-    --valid_token_batch_size 1024 \
+    --valid_token_batch_size 1000 \
     --valid_freq 50 \
     --valid_script $script_dir/validate.sh \
     --disp_freq 10 \
