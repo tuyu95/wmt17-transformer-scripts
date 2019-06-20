@@ -5,7 +5,7 @@
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --partition=Short
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:8
 #SBATCH --mem=12000  # memory in Mb
 #SBATCH --time=0-04:00:00
 
@@ -57,7 +57,6 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
                    $data_dir/corpus.bpe.both.json \
     --save_freq 1000 \
     --model $working_dir/model \
-    --reload latest_checkpoint \
     --model_type rnn \
     --embedding_size 512 \
     --state_size 1024 \
