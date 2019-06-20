@@ -65,7 +65,6 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --rnn_enc_transition_depth 2 \
     --rnn_dec_depth 1 \
     --rnn_dec_base_transition_depth 2 \
-    --tie_encoder_decoder_embeddings \
     --tie_decoder_embeddings \
     --rnn_layer_normalisation \
     --rnn_lexical_model \
@@ -93,6 +92,6 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --disp_freq 10 \
     --sample_freq 0 \
     --beam_freq 0 \
-    --beam_size 4 \
+    --beam_size 5 \
     --translation_maxlen 200 \
     --normalization_alpha 0.6
