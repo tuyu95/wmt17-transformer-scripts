@@ -56,7 +56,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --dictionaries $data_dir/corpus.bpe.both.json \
                    $data_dir/corpus.bpe.both.json \
     --save_freq 1000 \
-    --model $working_dir/model \
+    --model $working_dir \
     --reload latest_checkpoint \
     --model_type rnn \
     --embedding_size 512 \
@@ -83,7 +83,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --patience 10 \
     --maxlen 200 \
     --batch_size 32 \
-    --token_batch_size 2048 \
+    --token_batch_size 1024 \
     --valid_source_dataset $data_dir/newstest2019.bpe.$src \
     --valid_target_dataset $data_dir/newstest2019.bpe.$trg \
     --valid_batch_size 64 \
