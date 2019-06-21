@@ -25,7 +25,7 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 
 export PYTHON_PATH=$PATH
 
-
+source /home/${STUDENT_ID}/miniconda3/bin/activate mlp
 
 #script_dir=`dirname $0`
 script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
