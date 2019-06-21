@@ -66,13 +66,12 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --rnn_dec_base_transition_depth 2 \
     --tie_decoder_embeddings \
     --rnn_layer_normalisation \
-    --rnn_lexical_model \
     --rnn_dropout_hidden 0.5 \
     --rnn_dropout_embedding 0.5 \
     --rnn_dropout_source 0.3 \
     --rnn_dropout_target 0.3 \
     --loss_function cross-entropy \
-    --label_smoothing 0.1 \
+    --label_smoothing 0.2 \
     --optimizer adam \
     --adam_beta1 0.9 \
     --adam_beta2 0.999 \
