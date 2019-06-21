@@ -75,7 +75,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --label_smoothing 0.1 \
     --optimizer adam \
     --adam_beta1 0.9 \
-    --adam_beta2 0.98 \
+    --adam_beta2 0.999 \
     --adam_epsilon 1e-09 \
     --learning_schedule constant\
     --learning_rate 0.0005 \
