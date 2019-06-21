@@ -38,7 +38,7 @@ working_dir=$main_dir/model
 
 # TensorFlow devices; change this to control the GPUs used by Nematus.
 # It should be a list of GPU identifiers. For example, '1' or '0,1,3'
-devices=0,1,2,3,4,5,6,7
+devices=0,1,2,3
 
 # Training command that closely follows the 'base' configuration from the
 # paper
