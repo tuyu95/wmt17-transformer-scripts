@@ -27,6 +27,7 @@ export PYTHON_PATH=$PATH
 # this script evaluates the best model (according to BLEU early stopping)
 # on newstest2017, using detokenized BLEU (equivalent to evaluation with
 # mteval-v13a.pl)
+source /home/${STUDENT_ID}/miniconda3/bin/activate mlp
 
 script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
 main_dir=$script_dir/../
