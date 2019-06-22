@@ -26,6 +26,22 @@ then
   awk -F$'\t' '{print $2}' $main_dir/downloads/govin-clean.gu-en.tsv > $main_dir/downloads/govin-clean.gu-en.en
 fi
 
+if [ ! -f $main_dir/wikipedia.gu-en.tsv.gz ];
+then
+  wget http://data.statmt.org/wmt19/translation-task/wikipedia.gu-en.tsv.gz -O $main_dir/downloads/wikipedia.gu-en.tsv.gz
+  gzip -d $main_dir/downloads/wikipedia.gu-en.tsv.gz
+  awk -F$'\t' '{print $1}' $main_dir/downloads/wikipedia.gu-en.tsv > $main_dir/downloads/wikipedia.gu-en.gu
+  awk -F$'\t' '{print $2}' $main_dir/downloads/wikipedia.gu-en.tsv > $main_dir/downloads/wikipedia.gu-en.en
+fi
+
+if [ ! -f $main_dir/opus.gu-en.tsv.gz ];
+then
+  wget http://data.statmt.org/wmt19/translation-task/opus.gu-en.tsv.gz -O $main_dir/downloads/opus.gu-en.tsv.gz
+  gzip -d $main_dir/downloads/wikipedia.gu-en.tsv.gz
+  awk -F$'\t' '{print $1}' $main_dir/downloads/opus.gu-en.tsv > $main_dir/downloads/opus.gu-en.gu
+  awk -F$'\t' '{print $2}' $main_dir/downloads/opus.gu-en.tsv > $main_dir/downloads/opus.gu-en.en
+fi
+
 if [ ! -f $main_dir/downloads/dev.tgz ];
 then
   wget http://data.statmt.org/wmt19/translation-task/dev.tgz -O $main_dir/downloads/dev.tgz
@@ -40,8 +56,8 @@ fi
 
 
 # concatenate all training corpora
-cat $main_dir/downloads/gu-en.gu $main_dir/downloads/govin-clean.gu-en.gu > $main_dir/data/corpus.gu
-cat $main_dir/downloads/gu-en.en $main_dir/downloads/govin-clean.gu-en.en > $main_dir/data/corpus.en
+cat $main_dir/downloads/gu-en.gu $main_dir/downloads/govin-clean.gu-en.gu $main_dir/downloads/wikipedia.gu-en.gu $main_dir/downloads/opus.gu-en.gu > $main_dir/data/corpus.gu
+cat $main_dir/downloads/gu-en.en $main_dir/downloads/govin-clean.gu-en.en $main_dir/downloads/wikipedia.gu-en.en $main_dir/downloads/opus.gu-en.en > $main_dir/data/corpus.en
 
 $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newsdev2019-guen-ref.en.sgm > $main_dir/data/newsdev2019.en
 $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newsdev2019-guen-src.gu.sgm > $main_dir/data/newsdev2019.gu
