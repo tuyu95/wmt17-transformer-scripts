@@ -37,7 +37,7 @@ fi
 if [ ! -f $main_dir/opus.gu-en.tsv.gz ];
 then
   wget http://data.statmt.org/wmt19/translation-task/opus.gu-en.tsv.gz -O $main_dir/downloads/opus.gu-en.tsv.gz
-  gzip -d $main_dir/downloads/wikipedia.gu-en.tsv.gz
+  gzip -d $main_dir/downloads/opus.gu-en.tsv.gz
   awk -F$'\t' '{print $1}' $main_dir/downloads/opus.gu-en.tsv > $main_dir/downloads/opus.gu-en.gu
   awk -F$'\t' '{print $2}' $main_dir/downloads/opus.gu-en.tsv > $main_dir/downloads/opus.gu-en.en
 fi
