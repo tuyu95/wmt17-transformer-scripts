@@ -25,7 +25,7 @@ export PATH=${CUDA_HOME}/bin:${PATH}
 
 export PYTHON_PATH=$PATH
 
-
+source /home/${STUDENT_ID}/miniconda3/bin/activate mlp
 
 #script_dir=`dirname $0`
 script_dir=/home/s1852803/unmt/wmt17/wmt17-transformer-scripts/training/scripts
@@ -55,34 +55,41 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --target_dataset $data_dir/corpus.bpe.$trg \
     --dictionaries $data_dir/corpus.bpe.both.json \
                    $data_dir/corpus.bpe.both.json \
-    --save_freq 3000 \
+    --save_freq 10000 \
     --model $working_dir/model \
-    --reload latest_checkpoint \
-    --model_type transformer \
+    --model_type rnn \
     --embedding_size 512 \
-    --state_size 512 \
-    --tie_encoder_decoder_embeddings \
+    --state_size 1024 \
+    --rnn_enc_depth 1 \
+    --rnn_enc_transition_depth 2 \
+    --rnn_dec_depth 1 \
+    --rnn_dec_base_transition_depth 2 \
     --tie_decoder_embeddings \
-    --loss_function per-token-cross-entropy \
-    --label_smoothing 0.1 \
+    --rnn_layer_normalisation \
+    --rnn_dropout_hidden 0.5 \
+    --rnn_dropout_embedding 0.5 \
+    --rnn_dropout_source 0.3 \
+    --rnn_dropout_target 0.3 \
+    --loss_function cross-entropy \
+    --label_smoothing 0.2 \
     --optimizer adam \
     --adam_beta1 0.9 \
-    --adam_beta2 0.98 \
+    --adam_beta2 0.999 \
     --adam_epsilon 1e-09 \
-    --learning_schedule transformer \
-    --warmup_steps 400 \
-    --maxlen 100 \
-    --batch_size 64 \
-    --token_batch_size 4096 \
-    --valid_source_dataset $data_dir/newstest2013.bpe.$src \
-    --valid_target_dataset $data_dir/newstest2013.bpe.$trg \
-    --valid_batch_size 30 \
-    --valid_token_batch_size 1024 \
+    --learning_schedule constant\
+    --learning_rate 0.0005 \
+    --patience 10 \
+    --maxlen 200 \
+    --batch_size 128 \
+    --token_batch_size 1000 \
+    --valid_source_dataset $data_dir/newstest2019.bpe.$src \
+    --valid_target_dataset $data_dir/newstest2019.bpe.$trg \
+    --valid_token_batch_size 1000 \
     --valid_freq 1000 \
     --valid_script $script_dir/validate.sh \
-    --disp_freq 100 \
+    --disp_freq 10 \
     --sample_freq 0 \
     --beam_freq 0 \
-    --beam_size 4 \
-    --translation_maxlen 100 \
+    --beam_size 5 \
+    --translation_maxlen 200 \
     --normalization_alpha 0.6
