@@ -92,4 +92,3 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --beam_freq 0 \
     --beam_size 5 \
     --translation_maxlen 200 \
-    --normalization_alpha 0.6
