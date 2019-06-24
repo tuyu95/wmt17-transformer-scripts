@@ -53,7 +53,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/translate.py \
      -m $model \
      -i $data_dir/$test \
      -o $working_dir/$test.output.dev \
-     -k 12 \
+     -k 5 \
      -n 0.6 \
      -b 10
 
