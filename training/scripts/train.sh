@@ -53,8 +53,8 @@ devices=0,1,2,3,4,5,6,7
 CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --source_dataset $data_dir/corpus.bpe.$src \
     --target_dataset $data_dir/corpus.bpe.$trg \
-    --dictionaries $data_dir/corpus.bpe.both.json \
-                   $data_dir/corpus.bpe.both.json \
+    --dictionaries $data_dir/corpus.bpe.$src.json \
+                   $data_dir/corpus.bpe.$trg.json \
     --save_freq 10000 \
     --model $working_dir/model \
     --model_type rnn \
