@@ -70,7 +70,3 @@ for prefix in corpus newstest2019
 # build network dictionaries for separate source / target vocabularies
 $nematus_home/data/build_dictionary.py $data_dir/corpus.bpe.$src $data_dir/corpus.bpe.$trg
 
-# build network dictionary for combined source + target vocabulary (for use
-# with tied encoder-decoder embeddings)
-cat $data_dir/corpus.bpe.$src $data_dir/corpus.bpe.$trg > $data_dir/corpus.bpe.both
-$nematus_home/data/build_dictionary.py $data_dir/corpus.bpe.both
