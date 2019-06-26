@@ -81,8 +81,8 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --patience 10 \
     --maxlen 200 \
     --token_batch_size 5000 \
-    --valid_source_dataset $data_dir/newstest2019.bpe.$src \
-    --valid_target_dataset $data_dir/newstest2019.bpe.$trg \
+    --valid_source_dataset $data_dir/newsdev2019.bpe.$src \
+    --valid_target_dataset $data_dir/newsdev2019.bpe.$trg \
     --valid_token_batch_size 1000 \
     --valid_freq 1000 \
     --valid_script $script_dir/validate.sh \
