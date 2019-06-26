@@ -23,7 +23,7 @@ bpe_operations=2000
 bpe_threshold=50
 
 # tokenize
-for prefix in corpus newstest2019
+for prefix in corpus newstest2019 newsdev2019
  do
    cat $data_dir/$prefix.$src | \
    $moses_scripts/tokenizer/normalize-punctuation.perl -l $src | \
@@ -50,7 +50,7 @@ for prefix in corpus
  done
 
 # apply truecaser (dev/test files)
-for prefix in newstest2019
+for prefix in newstest2019 newsdev2019
  do
   $moses_scripts/recaser/truecase.perl -model $model_dir/truecase-model.$src < $data_dir/$prefix.tok.$src > $data_dir/$prefix.tc.$src
   $moses_scripts/recaser/truecase.perl -model $model_dir/truecase-model.$trg < $data_dir/$prefix.tok.$trg > $data_dir/$prefix.tc.$trg
@@ -61,7 +61,7 @@ $bpe_scripts/learn_joint_bpe_and_vocab.py -i $data_dir/corpus.tc.$src $data_dir/
 
 # apply BPE
 
-for prefix in corpus newstest2019
+for prefix in corpus newstest2019 newsdev2019
  do
   $bpe_scripts/apply_bpe.py -c $model_dir/$src$trg.bpe --vocabulary $data_dir/vocab.$src --vocabulary-threshold $bpe_threshold < $data_dir/$prefix.tc.$src > $data_dir/$prefix.bpe.$src
   $bpe_scripts/apply_bpe.py -c $model_dir/$src$trg.bpe --vocabulary $data_dir/vocab.$trg --vocabulary-threshold $bpe_threshold < $data_dir/$prefix.tc.$trg > $data_dir/$prefix.bpe.$trg
