@@ -62,8 +62,8 @@ cat $main_dir/downloads/gu-en.en $main_dir/downloads/govin-clean.gu-en.en $main_
 $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newsdev2019-guen-ref.en.sgm > $main_dir/data/newsdev2019.en
 $moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/dev/newsdev2019-guen-src.gu.sgm > $main_dir/data/newsdev2019.gu
 
-$moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/sgm/newstest2019-engu.src.en.sgm > $main_dir/data/newstest2019.en
-$moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/sgm/newstest2019-engu.ref.gu.sgm > $main_dir/data/newstest2019.gu
+$moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/sgm/newstest2019-engu-src.en.sgm > $main_dir/data/newstest2019.en
+$moses_scripts/ems/support/input-from-sgm.perl < $main_dir/downloads/sgm/newstest2019-engu-ref.gu.sgm > $main_dir/data/newstest2019.gu
 
 
 cd ..
