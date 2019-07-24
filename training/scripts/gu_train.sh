@@ -5,7 +5,7 @@
 #SBATCH -N 1	  # nodes requested
 #SBATCH -n 1	  # tasks requested
 #SBATCH --partition=General_Usage
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:2
 #SBATCH --mem=12000  # memory in Mb
 #SBATCH --time=0-80:00:00
 
@@ -38,7 +38,7 @@ working_dir=$main_dir/model
 
 # TensorFlow devices; change this to control the GPUs used by Nematus.
 # It should be a list of GPU identifiers. For example, '1' or '0,1,3'
-devices=0,1,2,3
+devices=0,1
 
 # Training command that closely follows the 'base' configuration from the
 # paper
@@ -53,8 +53,8 @@ devices=0,1,2,3
 CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --source_dataset $data_dir/corpus.bpe.$src \
     --target_dataset $data_dir/corpus.bpe.$trg \
-    --dictionaries $data_dir/corpus.bpe.both.json \
-                   $data_dir/corpus.bpe.both.json \
+    --dictionaries $data_dir/corpus.bpe.$src.json \
+                   $data_dir/corpus.bpe.$trg.json \
     --save_freq 1000 \
     --model $working_dir/model \
     --model_type rnn \
@@ -81,6 +81,7 @@ CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --patience 10 \
     --maxlen 200 \
     --token_batch_size 1000 \
+    --batch_size 16 \
     --valid_source_dataset $data_dir/newsdev2019.bpe.$src \
     --valid_target_dataset $data_dir/newsdev2019.bpe.$trg \
     --valid_token_batch_size 1000 \
