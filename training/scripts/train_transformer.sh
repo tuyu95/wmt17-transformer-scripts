@@ -53,8 +53,8 @@ devices=0,1
 CUDA_VISIBLE_DEVICES=$devices python3 $nematus_home/nematus/train.py \
     --source_dataset $data_dir/corpus.bpe.$src \
     --target_dataset $data_dir/corpus.bpe.$trg \
-    --dictionaries $data_dir/corpus.bpe.$src.json \
-                   $data_dir/corpus.bpe.$trg.json \
+    --dictionaries $data_dir/corpus.bpe.both.json \
+                   $data_dir/corpus.bpe.both.json \
     --save_freq 1000 \
     --model $working_dir/model \
     --reload latest_checkpoint \
